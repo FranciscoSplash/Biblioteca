@@ -1,0 +1,21 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+<h2>Buscar Livros</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Digite título ou autor" value="{{ query }}">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultado %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for livro in resultado %}
+            <li>{{ livro.titulo }} - {{ livro.autor }}</li>
+        {% endfor %}
+    </ul>
+{% elif query %}
+    <p>Nenhum livro encontrado.</p>
+{% endif %}
+{% endblock content %}

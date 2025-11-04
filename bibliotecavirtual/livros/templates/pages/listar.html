@@ -1,0 +1,35 @@
+{%extends 'pages/base.html'%}
+{% block tittle %} Listar {% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Lista de Livros</h1>
+{% if livros%}
+
+    <table class="table table-striped table-bordered">
+            <thead class ="table-dark">
+                <tr>
+                    <th>TITULO</th>
+                    <th>AUTOR</th>
+                    <th>ANO DE LANCAMENTO</th>
+                    <th>EDITAR</th>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.autor }}</td>
+                    <td>{{ livro.ano_de_publicacao }}</td>
+                    <td><a href="{% url 'editar' livro.id %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'apagar_livro' livro.id %}" class="btn btn-sm btn-danger">Apagar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table> <br>
+    <a href="{% url 'home' %}">Voltar</a>
+    {% else %}
+    <div class="alert alert-info">Nenhum livro cadastrado.</div>
+
+{% endif %}
+{% endblock%}

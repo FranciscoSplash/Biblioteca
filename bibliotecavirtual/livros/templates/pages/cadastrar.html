@@ -1,0 +1,28 @@
+
+{%extends 'pages/base.html'%}
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <h1 class="mb-4">Cadastrar Novos Livros</h1>
+
+    <form method="post" class="border p-4 rounded shadow">
+        {% csrf_token %}
+        <div class ="mb-3">
+            <label for="id_titulo" class="form-label">Titulo</label>
+        {{form.titulo|add_class:"form-control"}}
+        </div>
+        <div class ="mb-3">
+            <label for="id_autor" class="form-label">Autor</label>
+        {{form.autor|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_ano" class="form-label">Ano</label>
+            {{ form.ano_de_publicacao|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </form>
+    <a href="{% url 'home' %}">Voltar</a>
+
+    {% endblock %}

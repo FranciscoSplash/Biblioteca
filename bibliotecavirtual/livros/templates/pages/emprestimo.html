@@ -1,0 +1,39 @@
+{% extends 'pages/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h1 class="mb-4 text-center">Formulário de Empréstimo de livro</h1>
+    
+<form method="post" class="border p-4 rounded shadow bg-light">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_livro" class="form-label">TITULO DO LIVRO</label>
+            {{form.livro|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_nome" class="form-label">NOME</label>
+            {{form.nome|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_telefone" class="form-label" required>TELEFONE</label>
+            {{form.telefone|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_email" class="form-label" placeholder="teste@exemplo.com" required>EMAIL</label>
+            {{form.email|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_data_de_devolucao" class="form-label" required>DATA DE DEVOLUÇÃO</label>
+            {{form.data_de_devolucao|add_class:"form-control"}}
+        </div>
+        <div class="mb-3">
+            <label for="id_usuario" class="form-label" required>Nome do Usuario</label>
+            {{form.usuario|add_class:"form-control"}}
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
+        </div>
+    </form>
+
+{% endblock%}

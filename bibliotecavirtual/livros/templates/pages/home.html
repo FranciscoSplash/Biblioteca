@@ -1,0 +1,43 @@
+<!-- templates/livros/home.html -->
+{% extends 'pages/base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="text-center">
+        <h1 class="display-4">Bem-vindo ao Sistema de Biblioteca </h1>
+        <p class="lead">Gerencie livros, empréstimos e usuários com facilidade</p>
+        <a href="{% url 'pesquisar' %}">Buscar Livros</a>
+
+        <div class="row mt-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">cadastrar livros</h5>
+                        <a href="{% url 'cadastrar_livros' %}" class="btn btn-primary">Ir para Cadastro</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Ver livros</h5>
+                        <a href="{% url 'listar_livros' %}" class="btn btn-success">Ver Livros</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Realizar Emprestimo</h5>
+                        <a href="{% url 'emprestar' %}" class="btn btn-secondary">Emprestimo</a>
+                        <a href="{% url 'emprestar_livros' %}" class="btn btn-secondary">Lista de Emprestimos</a>
+                    </div>
+                </div>
+            </div>
+              
+        </div>
+            </div>
+            
+    </div>
+ {% endblock%}

@@ -1,0 +1,13 @@
+{% include 'livros/partis/head.html' %}
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand"><a href="{% url 'home' %}">LibaryAngolana</a></span>
+            <div class="d-flex">
+                <span class="navbar-text text-light me-3">Bem vindo, {{ request.user.username }}</span>
+                <a href="{% url 'logout' %}">Sair</a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

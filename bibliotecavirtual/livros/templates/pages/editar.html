@@ -1,0 +1,11 @@
+{% extends 'pages/base.html' %}
+
+{% block content%}
+<h2>Editar Livro</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar Alterações</button>
+</form>
+
+{%endblock%}
